@@ -51,35 +51,88 @@ const restaurant = {
   },
 };
 
-console.log('------ OR ------');
+const rest1 = {
+  name: 'Capri',
+  // numGuests: 20,
+  numGuests: 0,
+};
 
-// Use ANY data type, return ANY data type, short-circuting
-console.log(3 || 'Jonas');
-console.log('' || 'Jonas');
-console.log(true || 0);
-console.log(undefined || null);
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
 
-console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+// OR assignment operator
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+rest1.numGuests ||= 10;
+rest2.numGuests ||= 10;
 
-restaurant.numGuests = 23;
-const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
-console.log(guests1);
+// Nulish assignement operator ()
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
 
-const guests2 = restaurant.numGuests || 10;
-console.log(guests2);
+// AND assignment operator
+rest1.owner = rest1.owner && '<ANONYMOUS>';
+rest2.owner = rest2.owner && '<ANONYMOUS>';
 
-console.log('------ AND ------');
-console.log(0 && 'Jonas');
-console.log(7 && 'Jonas');
+rest1.owner &&= '<ANONYMOUS>';
+rest2.owner &&= '<ANONYMOUS>';
+console.log(rest1);
+console.log(rest2);
 
-console.log('Hello' && 23 && null && 'jonas');
+////////////////////////////////////////////////////////
+// The Nullish Coalescing Operator
 
-// Practical example
-if (restaurant.orderPizza) {
-  restaurant.orderPizza('mashrooms', 'spinach');
-}
+// // restaurant.numGuests = 0;
+// const guests = restaurant.numGuests || 10;
+// console.log(guests);
 
-restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+// // Nullish: null and undefined (NOT 0 or '')
+// const guestCorrect = restaurant.numGuests ?? 10;
+// console.log(guestCorrect);
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+////////////////////////////////////////////////////
+// Short Circuiting (&& and ||)
+
+// console.log('------ OR ------');
+
+// // Use ANY data type, return ANY data type, short-circuting
+// console.log(3 || 'Jonas');
+// console.log('' || 'Jonas');
+// console.log(true || 0);
+// console.log(undefined || null);
+
+// console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+
+// restaurant.numGuests = 23;
+// const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// console.log(guests1);
+
+// const guests2 = restaurant.numGuests || 10;
+// console.log(guests2);
+
+// console.log('------ AND ------');
+// console.log(0 && 'Jonas');
+// console.log(7 && 'Jonas');
+
+// console.log('Hello' && 23 && null && 'jonas');
+
+// // Practical example
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza('mashrooms', 'spinach');
+// }
+
+// restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
 
 //
 //
